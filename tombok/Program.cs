@@ -22,10 +22,37 @@
                 Console.WriteLine(torpok[i]);
             }
         }
-        
+
+        static void Csere()
+        {
+            Console.Write("Melyik torpot csereljuk le?");
+            string nev = Console.ReadLine();
+
+            //kivalasztas tetele: van-e a tombben ilyen nev es ha van hanyadik helyen
+            int index = 0;
+            while (index < torpok.Length && torpok[index] != nev)
+            {
+                index++;
+            }
+            if (index < torpok.Length) 
+            {
+            
+                Console.Write("Melyik torpre csereljuk le?");
+                string ujNev = Console.ReadLine();
+                torpok[index] = ujNev;
+                Console.WriteLine("Lecserelve!");
+            }
+            else
+            {
+                Console.WriteLine("Nincs ilyen torp a listaban!");
+            }
+        }
+
         static void Main(string[] args)
         {
             TorpokLetrehozasa();
+            TorpokKiirasa();
+            Csere();
             TorpokKiirasa();
         }
     }
